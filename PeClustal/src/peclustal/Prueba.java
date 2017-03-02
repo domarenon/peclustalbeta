@@ -41,6 +41,6 @@ public class Prueba {
     
     
     private String cadena = "abdcefghijklmn";
-    private String entrada = "abcdefghijklmn";
+    private String entrada = "defghijklmn";
     
 }

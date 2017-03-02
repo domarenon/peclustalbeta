@@ -9,11 +9,8 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -57,7 +54,7 @@ public class Principalm extends javax.swing.JFrame {
                 
                 String strFasta = analizarFasta(b);
                 
-                visualizarFasta(strFasta,conf);
+                //visualizarFasta(strFasta,conf);
                 
             }
             
@@ -69,6 +66,132 @@ public class Principalm extends javax.swing.JFrame {
     }
     
     public String analizarFasta(String fasta){
+    
+        String strNormal="ATG GAG GAG CCG CAG TCA GAT CCT AGC GTC GAG CCC CCT CTG AGT CAG GAA ACA TTT TCA " +
+"GAC CTA TGG AAA CTA CTT CCT GAA AAC AAC GTT CTG TCC CCC TTG CCG TCC CAA GCA ATG " +
+"GAT GAT TTG ATG CTG TCC CCG GAC GAT ATT GAA CAA TGG TTC ACT GAA GAC CCA GGT CCA " +
+"GAT GAA GCT CCC AGA ATG CCA GAG GCT GCT CCC CGC GTG GCC CCT GCA CCA GCA GCT CCT " +
+"ACA CCG GCG GCC CCT GCA CCA GCC CCC TCC TGG CCC CTG TCA TCT TCT GTC CCT TCC CAG " +
+"AAA ACC TAC CAG GGC AGC TAC GGT TTC CGT CTG GGC TTC TTG CAT TCT GGG ACA GCC AAG " +
+"TCT GTG ACT TGC ACG TAC TCC CCT GCC CTC AAC AAG ATG TTT TGC CAA CTG GCC AAG ACC " +
+"TGC CCT GTG CAG CTG TGG GTT GAT TCC ACA CCC CCG CCC GGC ACC CGC GTC CGC GCC ATG " +
+"GCC ATC TAC AAG CAG TCA CAG CAC ATG ACG GAG GTT GTG AGG CGC TGC CCC CAC CAT GAG " +
+"CGC TGC TCA GAT AGC GAT GGT CTG GCC CCT CCT CAG CAT CTT ATC CGA GTG GAA GGA AAT " +
+"TTG CGT GTG GAG TAT TTG GAT GAC AGA AAC ACT TTT CGA CAT AGT GTG GTG GTG CCC TAT " +
+"GAG CCG CCT GAG GTT GGC TCT GAC TGT ACC ACC ATC CAC TAC AAC TAC ATG TGT AAC AGT " +
+"TCC TGC ATG GGC GGC ATG AAC CGG AGG CCC ATC CTC ACC ATC ATC ACA CTG GAA GAC TCC " +
+"AGT GGT AAT CTA CTG GGA CGG AAC AGC TTT GAG GTG CGT GTT TGT GCC TGT CCT GGG AGA " +
+"GAC CGG CGC ACA GAG GAA GAG AAT CTC CGC AAG AAA GGG GAG CCT CAC CAC GAG CTG CCC " +
+"CCA GGG AGC ACT AAG CGA GCA CTG CCC AAC AAC ACC AGC TCC TCT CCC CAG CCA AAG AAG " +
+"AAA CCA CTG GAT GGA GAA TAT TTC ACC CTT CAG ATC CGT GGG CGT GAG CGC TTC GAG ATG " +
+"TTC CGA GAG CTG AAT GAG GCC TTG GAA CTC AAG GAT GCC CAG GCT GGG AAG GAG CCA GGG " +
+"GGG AGC AGG GCT CAC TCC AGC CAC CTG AAG TCC AAA AAG GGT GAG TCT ACC TCC CGC CAT " +
+"AAA AAA CTC ATG TTC AAG ACA GAA GGG CCT GAC TCA GAC TGA";
+        fasta = "tta";
+        int cont = 0;
+        int contAux = 0, posicionCorrecta = 0;
+        String cadenaAux[] = strNormal.split(" ");
+        String aminoacid[] = new  String[cadenaAux.length];
+        
+        strNormal = strNormal.replaceAll("GCT", "A");
+        strNormal = strNormal.replaceAll("GCC", "A");
+        strNormal = strNormal.replaceAll("GCG", "A");
+        strNormal = strNormal.replaceAll("GCA", "A");
+        strNormal = strNormal.replaceAll("CGT", "R");
+        strNormal = strNormal.replaceAll("CGC", "R");
+        strNormal = strNormal.replaceAll("CGG", "R");
+        strNormal = strNormal.replaceAll("CGA", "R");
+        strNormal = strNormal.replaceAll("AGA", "R");
+        strNormal = strNormal.replaceAll("AGG", "R");
+        strNormal = strNormal.replaceAll("AAC", "N");
+        strNormal = strNormal.replaceAll("AAT", "N");
+        strNormal = strNormal.replaceAll("GAC", "D");
+        strNormal = strNormal.replaceAll("GAT", "D");
+        strNormal = strNormal.replaceAll("TGC", "C");
+        strNormal = strNormal.replaceAll("TGT", "C");
+        strNormal = strNormal.replaceAll("GAA", "E");
+        strNormal = strNormal.replaceAll("GAG", "E");
+        strNormal = strNormal.replaceAll("CAG", "Q");
+        strNormal = strNormal.replaceAll("CAA", "Q");
+        strNormal = strNormal.replaceAll("GGT", "G");
+        strNormal = strNormal.replaceAll("GGC", "G");
+        strNormal = strNormal.replaceAll("GGG", "G");
+        strNormal = strNormal.replaceAll("GGA", "G");
+        strNormal = strNormal.replaceAll("CAT", "H");
+        strNormal = strNormal.replaceAll("CAC", "H");
+        strNormal = strNormal.replaceAll("ATC", "I");
+        strNormal = strNormal.replaceAll("ATT", "I");
+        strNormal = strNormal.replaceAll("CTG", "L");
+        strNormal = strNormal.replaceAll("CTA", "L");
+        strNormal = strNormal.replaceAll("CTT", "L");
+        strNormal = strNormal.replaceAll("CTC", "L");
+        strNormal = strNormal.replaceAll("TTG", "L");
+        strNormal = strNormal.replaceAll("AAG", "K");
+        strNormal = strNormal.replaceAll("AAA", "K");
+        strNormal = strNormal.replaceAll("ATG", "M");
+        strNormal = strNormal.replaceAll("TTC", "F");
+        strNormal = strNormal.replaceAll("TTT", "F");
+        strNormal = strNormal.replaceAll("CCT", "P");
+        strNormal = strNormal.replaceAll("CCG", "P");
+        strNormal = strNormal.replaceAll("CCA", "P");
+        strNormal = strNormal.replaceAll("CCC", "P");
+        strNormal = strNormal.replaceAll("TCA", "S");
+        strNormal = strNormal.replaceAll("AGC", "S");
+        strNormal = strNormal.replaceAll("AGT", "S");
+        strNormal = strNormal.replaceAll("TCC", "S");
+        strNormal = strNormal.replaceAll("TCT", "S");
+        strNormal = strNormal.replaceAll("ACG", "S");
+        strNormal = strNormal.replaceAll("ACC", "T");
+        strNormal = strNormal.replaceAll("ACA", "T");
+        strNormal = strNormal.replaceAll("ACT", "T");
+        strNormal = strNormal.replaceAll("TGG", "W");
+        strNormal = strNormal.replaceAll("TAC", "Y");
+        strNormal = strNormal.replaceAll("TAT", "Y");
+        strNormal = strNormal.replaceAll("GTG", "V");
+        strNormal = strNormal.replaceAll("GTC", "V");
+        strNormal = strNormal.replaceAll("GTT", "V");
+        
+        System.out.println(strNormal);
+        for (int i = 0; i < cadenaAux.length; i++) {
+            System.out.print(i + " ");
+        }
+        
+        for (int i = 0; i < (strNormal.length() - fasta.length()); i++) {
+
+            cont=0;
+            for (int j = 0; j < fasta.length(); j++) {
+
+                if (strNormal.toCharArray()[i + j] == fasta.toCharArray()[j]) {
+                    cont++;
+                }
+
+            }
+            if (cont > contAux) {
+                contAux = cont;
+                posicionCorrecta = i;
+            }
+
+        }
+
+        String cambios = new String();
+        int contadorC = 0;
+        for (int i = posicionCorrecta; i < (posicionCorrecta + fasta.length()); i++) {
+            
+            if(strNormal.toCharArray()[i] == fasta.toCharArray()[contadorC])
+                cambios = cambios.concat(" ");
+            else
+                cambios = cambios.concat("*");
+            contadorC++;
+        }
+        System.out.println(cambios);
+        String strAux="";
+        for (int i = 0; i < posicionCorrecta; i++) {
+            strAux += " ";
+        }
+        fasta = strAux.concat(fasta);
+        cambios = strAux.concat(cambios);
+
+        jTextArea1.setText(strNormal.toUpperCase()+"\n"+fasta.toUpperCase()+"\n"+cambios);
         
         return fasta;
     }
