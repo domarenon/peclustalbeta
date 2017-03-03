@@ -130,7 +130,52 @@ public class Principalm extends javax.swing.JFrame {
         }
         fasta = strAux.concat(fasta);
         cambios = strAux.concat(cambios);
+        
+        String codonMut;
+        String codonNorm;
+        String matrizTempX[][] = new String[cambios.replaceAll(" ", "").trim().length()][5];
+        int contadorMatriz = 0;
+        
+        for (int i = 0; i < cambios.length(); i++) {
+            
+            if(cambios.toCharArray()[i] == '*'){
+                for (int j = 0; j < strNormal.length(); j = j+3) {
+                    if(j == i){
+                        
+                        matrizTempX[contadorMatriz][0] = strNormal.substring(j, j + 3);
+                        matrizTempX[contadorMatriz][1] = fasta.substring(j, j + 3);
+                        matrizTempX[contadorMatriz][2] = Integer.valueOf(i).toString();
+                        matrizTempX[contadorMatriz][3] = onChangeBaseNToAminoacid(matrizTempX[contadorMatriz][0]);
+                        matrizTempX[contadorMatriz][4] = onChangeBaseNToAminoacid(matrizTempX[contadorMatriz][1]);
+                        contadorMatriz++;
+                        break;
 
+                    }else if(j > i){
+
+                        matrizTempX[contadorMatriz][0]  = strNormal.substring(j-3, j);
+                        matrizTempX[contadorMatriz][1] = fasta.substring(j-3, j);
+                        matrizTempX[contadorMatriz][2] = Integer.valueOf(i).toString();
+                        matrizTempX[contadorMatriz][3] = onChangeBaseNToAminoacid(matrizTempX[contadorMatriz][0]);
+                        matrizTempX[contadorMatriz][4] = onChangeBaseNToAminoacid(matrizTempX[contadorMatriz][1]);
+                        contadorMatriz++;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        jTextArea3.setText("");
+        for (String[] info : matrizTempX) {
+            if(!info[4].equals(info[3]))
+            jTextArea3.append(
+                    "Se halla mutacion en posicion " +info[2]+ 
+                    ": " +info[0] + " -> "+info[1]+", "
+                            + "Aminoacido mutado: "+info[3]+" -> "+ info[4] +"\n");
+            else
+                jTextArea3.append("El aminoacido en la posicion "+info[2]+
+                        " no ha cambiado. "+info[4]+"->"+info[3]+"\n");
+        }
+        
         jTextArea1.setText(strNormal.toUpperCase()+"\n"+fasta.toUpperCase()+"\n"+cambios);
         
         return fasta;
@@ -292,6 +337,8 @@ public class Principalm extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -320,6 +367,11 @@ public class Principalm extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jTextArea2.setText(">Gen en estado normal");
         jScrollPane3.setViewportView(jTextArea2);
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane1.setViewportView(jTextArea3);
 
         jMenu1.setText("File");
 
@@ -350,7 +402,9 @@ public class Principalm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -360,7 +414,9 @@ public class Principalm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -418,10 +474,12 @@ public class Principalm extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
 }
