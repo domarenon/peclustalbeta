@@ -87,74 +87,14 @@ public class Principalm extends javax.swing.JFrame {
 "TTC CGA GAG CTG AAT GAG GCC TTG GAA CTC AAG GAT GCC CAG GCT GGG AAG GAG CCA GGG " +
 "GGG AGC AGG GCT CAC TCC AGC CAC CTG AAG TCC AAA AAG GGT GAG TCT ACC TCC CGC CAT " +
 "AAA AAA CTC ATG TTC AAG ACA GAA GGG CCT GAC TCA GAC TGA";
-        fasta = "tta";
         int cont = 0;
         int contAux = 0, posicionCorrecta = 0;
+        fasta = fasta.toUpperCase();
         String cadenaAux[] = strNormal.split(" ");
         String aminoacid[] = new  String[cadenaAux.length];
-        
-        strNormal = strNormal.replaceAll("GCT", "A");
-        strNormal = strNormal.replaceAll("GCC", "A");
-        strNormal = strNormal.replaceAll("GCG", "A");
-        strNormal = strNormal.replaceAll("GCA", "A");
-        strNormal = strNormal.replaceAll("CGT", "R");
-        strNormal = strNormal.replaceAll("CGC", "R");
-        strNormal = strNormal.replaceAll("CGG", "R");
-        strNormal = strNormal.replaceAll("CGA", "R");
-        strNormal = strNormal.replaceAll("AGA", "R");
-        strNormal = strNormal.replaceAll("AGG", "R");
-        strNormal = strNormal.replaceAll("AAC", "N");
-        strNormal = strNormal.replaceAll("AAT", "N");
-        strNormal = strNormal.replaceAll("GAC", "D");
-        strNormal = strNormal.replaceAll("GAT", "D");
-        strNormal = strNormal.replaceAll("TGC", "C");
-        strNormal = strNormal.replaceAll("TGT", "C");
-        strNormal = strNormal.replaceAll("GAA", "E");
-        strNormal = strNormal.replaceAll("GAG", "E");
-        strNormal = strNormal.replaceAll("CAG", "Q");
-        strNormal = strNormal.replaceAll("CAA", "Q");
-        strNormal = strNormal.replaceAll("GGT", "G");
-        strNormal = strNormal.replaceAll("GGC", "G");
-        strNormal = strNormal.replaceAll("GGG", "G");
-        strNormal = strNormal.replaceAll("GGA", "G");
-        strNormal = strNormal.replaceAll("CAT", "H");
-        strNormal = strNormal.replaceAll("CAC", "H");
-        strNormal = strNormal.replaceAll("ATC", "I");
-        strNormal = strNormal.replaceAll("ATT", "I");
-        strNormal = strNormal.replaceAll("CTG", "L");
-        strNormal = strNormal.replaceAll("CTA", "L");
-        strNormal = strNormal.replaceAll("CTT", "L");
-        strNormal = strNormal.replaceAll("CTC", "L");
-        strNormal = strNormal.replaceAll("TTG", "L");
-        strNormal = strNormal.replaceAll("AAG", "K");
-        strNormal = strNormal.replaceAll("AAA", "K");
-        strNormal = strNormal.replaceAll("ATG", "M");
-        strNormal = strNormal.replaceAll("TTC", "F");
-        strNormal = strNormal.replaceAll("TTT", "F");
-        strNormal = strNormal.replaceAll("CCT", "P");
-        strNormal = strNormal.replaceAll("CCG", "P");
-        strNormal = strNormal.replaceAll("CCA", "P");
-        strNormal = strNormal.replaceAll("CCC", "P");
-        strNormal = strNormal.replaceAll("TCA", "S");
-        strNormal = strNormal.replaceAll("AGC", "S");
-        strNormal = strNormal.replaceAll("AGT", "S");
-        strNormal = strNormal.replaceAll("TCC", "S");
-        strNormal = strNormal.replaceAll("TCT", "S");
-        strNormal = strNormal.replaceAll("ACG", "S");
-        strNormal = strNormal.replaceAll("ACC", "T");
-        strNormal = strNormal.replaceAll("ACA", "T");
-        strNormal = strNormal.replaceAll("ACT", "T");
-        strNormal = strNormal.replaceAll("TGG", "W");
-        strNormal = strNormal.replaceAll("TAC", "Y");
-        strNormal = strNormal.replaceAll("TAT", "Y");
-        strNormal = strNormal.replaceAll("GTG", "V");
-        strNormal = strNormal.replaceAll("GTC", "V");
-        strNormal = strNormal.replaceAll("GTT", "V");
-        
+      
+        strNormal = strNormal.replaceAll(" ", "");
         System.out.println(strNormal);
-        for (int i = 0; i < cadenaAux.length; i++) {
-            System.out.print(i + " ");
-        }
         
         for (int i = 0; i < (strNormal.length() - fasta.length()); i++) {
 
@@ -196,6 +136,72 @@ public class Principalm extends javax.swing.JFrame {
         return fasta;
     }
     
+    public String onChangeBaseNToAminoacid(String entrada){
+                
+        String cadenaModificada = entrada;
+        cadenaModificada = cadenaModificada.replaceAll("GCT", "A");
+        cadenaModificada = cadenaModificada.replaceAll("GCC", "A");
+        cadenaModificada = cadenaModificada.replaceAll("GCG", "A");
+        cadenaModificada = cadenaModificada.replaceAll("GCA", "A");
+        cadenaModificada = cadenaModificada.replaceAll("CGT", "R");
+        cadenaModificada = cadenaModificada.replaceAll("CGC", "R");
+        cadenaModificada = cadenaModificada.replaceAll("CGG", "R");
+        cadenaModificada = cadenaModificada.replaceAll("CGA", "R");
+        cadenaModificada = cadenaModificada.replaceAll("AGA", "R");
+        cadenaModificada = cadenaModificada.replaceAll("AGG", "R");
+        cadenaModificada = cadenaModificada.replaceAll("AAC", "N");
+        cadenaModificada = cadenaModificada.replaceAll("AAT", "N");
+        cadenaModificada = cadenaModificada.replaceAll("GAC", "D");
+        cadenaModificada = cadenaModificada.replaceAll("GAT", "D");
+        cadenaModificada = cadenaModificada.replaceAll("TGC", "C");
+        cadenaModificada = cadenaModificada.replaceAll("TGT", "C");
+        cadenaModificada = cadenaModificada.replaceAll("GAA", "E");
+        cadenaModificada = cadenaModificada.replaceAll("GAG", "E");
+        cadenaModificada = cadenaModificada.replaceAll("CAG", "Q");
+        cadenaModificada = cadenaModificada.replaceAll("CAA", "Q");
+        cadenaModificada = cadenaModificada.replaceAll("GGT", "G");
+        cadenaModificada = cadenaModificada.replaceAll("GGC", "G");
+        cadenaModificada = cadenaModificada.replaceAll("GGG", "G");
+        cadenaModificada = cadenaModificada.replaceAll("GGA", "G");
+        cadenaModificada = cadenaModificada.replaceAll("CAT", "H");
+        cadenaModificada = cadenaModificada.replaceAll("CAC", "H");
+        cadenaModificada = cadenaModificada.replaceAll("ATC", "I");
+        cadenaModificada = cadenaModificada.replaceAll("ATT", "I");
+        cadenaModificada = cadenaModificada.replaceAll("CTG", "L");
+        cadenaModificada = cadenaModificada.replaceAll("CTA", "L");
+        cadenaModificada = cadenaModificada.replaceAll("CTT", "L");
+        cadenaModificada = cadenaModificada.replaceAll("CTC", "L");
+        cadenaModificada = cadenaModificada.replaceAll("TTG", "L");
+        cadenaModificada = cadenaModificada.replaceAll("AAG", "K");
+        cadenaModificada = cadenaModificada.replaceAll("AAA", "K");
+        cadenaModificada = cadenaModificada.replaceAll("ATG", "M");
+        cadenaModificada = cadenaModificada.replaceAll("TTC", "F");
+        cadenaModificada = cadenaModificada.replaceAll("TTT", "F");
+        cadenaModificada = cadenaModificada.replaceAll("CCT", "P");
+        cadenaModificada = cadenaModificada.replaceAll("CCG", "P");
+        cadenaModificada = cadenaModificada.replaceAll("CCA", "P");
+        cadenaModificada = cadenaModificada.replaceAll("CCC", "P");
+        cadenaModificada = cadenaModificada.replaceAll("TCA", "S");
+        cadenaModificada = cadenaModificada.replaceAll("AGC", "S");
+        cadenaModificada = cadenaModificada.replaceAll("AGT", "S");
+        cadenaModificada = cadenaModificada.replaceAll("TCC", "S");
+        cadenaModificada = cadenaModificada.replaceAll("TCT", "S");
+        cadenaModificada = cadenaModificada.replaceAll("ACG", "S");
+        cadenaModificada = cadenaModificada.replaceAll("ACC", "T");
+        cadenaModificada = cadenaModificada.replaceAll("ACA", "T");
+        cadenaModificada = cadenaModificada.replaceAll("ACT", "T");
+        cadenaModificada = cadenaModificada.replaceAll("TGG", "W");
+        cadenaModificada = cadenaModificada.replaceAll("TAC", "Y");
+        cadenaModificada = cadenaModificada.replaceAll("TAT", "Y");
+        cadenaModificada = cadenaModificada.replaceAll("GTG", "V");
+        cadenaModificada = cadenaModificada.replaceAll("GTC", "V");
+        cadenaModificada = cadenaModificada.replaceAll("GTT", "V");
+        cadenaModificada = cadenaModificada.replaceAll("TGA", "U"); // codon de terminacion
+  
+
+        return cadenaModificada;
+    }
+    
     public void visualizarFasta(String strFasta, String conf){
         
             //imprimir cadenaFasta
@@ -206,7 +212,7 @@ public class Principalm extends javax.swing.JFrame {
                 System.out.print(elemento);
             }*/    
             ArrayList<Character> cadenaFasta= new ArrayList<>();
-            String strNormal="acttgtcatggcgactgtccagctttgtgccaggagcctcgcaggggttgatgggattggggttttcccctcccatgtgctcaagactggcgctaaaagttttgagcttctcaaaagtctagagccaccgtccagggagcaggtagctgctgggctccggggacactttgcgttcgggctgggagcgtgctttccacgacggtgacacgcttccctggattgggtaagctcctgactgaacttgatgagtcctctctgagtcacgggctctcggctccgtgtattttcagctcgggaaaatcgctggggctgggggtggggcagtggggacttagcgagtttgggggtgagtgggatggaagcttggctagagggatcatcataggagttgcattgttgggagacctgggtgtagatgatggggatgttaggaccatccgaactcaaagttgaacgcctaggcagaggagtggagctttggggaaccttgagccggcctaaagcgtacttctttgcacatccacccggtgctgggcgtagggaatccctgaaataaaagatgcacaaagcattgaggtctgagacttttggatctcgaaacattgagaactcatagctgtatattttagagcccatggcatcctagtgaaaactggggctccattccgaaatgatcatttgggggtgatccggggagcccaagctgctaaggtcccacaacttccggacctttgtccttcctggagcgatctttccaggcagcccccggctccgctagatggagaaaatccaattgaaggctgtcagtcgtggaagtgagaagtgctaaaccaggggtttgcccgccaggccgaggaggaccgtcgcaatctgagaggcccggcagccctgttattgtttggctccacatttacatttctgcctcttgcagcagcatttccggtttctttttgccggagcagctcactattcacccgatgagaggggaggagagagagagaaaatgtcctttaggccggttcctcttacttggcagagggaggctgctattctccgcctgcatttctttttctggattacttagttatggcctttgcaaaggcaggggtatttgttttgatgcaaacctcaatccctccccttctttgaatggtgtgccccaccccgcgggtcgcctgcaacctaggcggacgctaccatggcgtgagacagggagggaaagaagtgtgcagaaggcaagcccggaggtattttcaagaatgagtatatctcatcttcccggaggaaaaaaaaaaagaatgggtacgtctgagaatcaaattttgaaagagtgcaatgatgggtcgtttgataatttgtcggaaaaacaatctacctgttatctagctttgggctaggccattccagttccagacgcaggctgaacgtcgtgaagcggaaggggcgggcccgcaggcgtccgtgtggtcctccgtgcagccctccggcccgagccggttcttcctggtaggaggcggaactcgaattcatttctcccgctgccccatctcttagctcgcggttgtttcattccgcagtttcttcccatgcacctgccgcgtaccggccactttgtgccgtacttacgtcatctttttcctaaatcgaggtggcatttacacacagcgccagtgcacacagcaagtgcacaggaagatgagttttggcccctaaccgctccgtgatgcctaccaagtcacagacccttttcatcgtcccagaaacgtttcatcacgtctcttcccagtcgattcccgaccccacctttattttgatctccataaccattttgcctgttggagaacttcatatagaatggaatcaggctgggcgctgtggctcacgcctgcactttgggaggccgaggcgggcggattacttgaggataggagttccagaccagcgtggccaacgtggtgaatccccgtctctactaaaaaatacaaaaattagctgggcgtggtgggtgcctgtaatcccagctattcgggagggtgaggcaggagaatcgcttgaacccgggaggcagaggttgcagtgagccaagatcgtgccactacactccagcctgggcgacaagaacgaaactccgtctcaaaaaaaaggggggaatcatacattatgtgctcatttttgtcgggcttctgtccttcaatgtactgtctgacattcgttcatgttgtatatatcagtattttgctccttttcatttagtatagtccatcgattgtatatccgtccttttgatggccttttgagttgtttcccatttgcggttatgaaataaagctgctataaacattcttgtacaattctttttgtgatcatatgttttcgtgtttcttggagaaatacttaggaggggaattgcgagtttggaagtaaaaagtagctgtattttgaactttttcagaagctctgagttttccagagcggttgtaccattttacactccaactagcaaggtatgggagttattatggttgtgccacagccttccggacattaggtattgtcagtctttctaatgtggtatatccttgtggttgtaatttacagttctctattgactaaggatgttcagcattttttcatgtgcctattggccattcgtattttgtttgtaaagtagctcttcgagtcttttacctgttattttggttttttgtttgtttttattgttcagttgtgggactgctttatacattctggatacaagtcctttatcagatccatgtgtcgtgaatgttttcttctgatctgttgcttgcctatttgtttgctttacagagtttacagtatcttaagaggagtggatttatcttttttatgttcagtatttgccttgtcctgtttaggacatctttttttttttttttaaccccagggtcatgaagatattatcttacattttcttttaggacctttatggttgtaagttttacagtaaggtccttgagccattaattaattcttaaaattaattgtttatggtgtgaggtgtaggagtcagtctctggtatctttcctgtatggaaatccagttattctgtctccacttgttgaaataggcttcctttctctactgaatgcttttaattttaattattttacagttggagtatagggctaccattttagtgctattttctttttttctttgttaatttttgagacagggactcacactgttgcccaggctagagtacaatggcacaatcaaggcttactgcagcctcgaacccctgggctcaagcagtcctctagcagcctcacgagtagctgggattactccaccacacccagctaactattttatttttttgtattgacaggatctcactatgttgcccaggctggtctcaaactgctggcctcaagctttcatcccatctcggcctcccaaagtgctgggattacaggtgtgagccaccatgcctgacctcttagtgctattttctatttatctcctctgttctctgctctctttaaacgttggaggaagaaacagtacccatcttacacaaactcttcagaaaacagaggaacagactgggcgcggtggctcatacctgtaatctcagcactttggtacgctgaggcaggggatcatttgaggtcgggagttcgagaccagcctggccaacacggcgaaaccccatctctactaaaaatacaaaaagtagctaggcgtggtgacacatacctgtaatgccagttactcaggaggctgaggcacaagaatcccttgaacctgggaagcggaggttgcagtgagccgagattgcgccactgcactccagcctgggcaacagagtgagaccctgtctcagaaaaaaaaagaaagaaagaaaaaatagaggaatatttcccaacttgttttcgaagccagcataatcctggtaccaaaaccaaacaaggacattataagaaaagaaaatatagaccaatattcctgttagcatagacatgcaacagctaaccaattttagcaaaccaaacctggtaatatagaaaaaaggataaataggccagtcgcggtggctcacgcctgtaatcccagcactttgggaggctgaggcaggcagatcacttgaggtcaggagtttgagaccagcctgaccaacatggtgaaaccccgtttctaataaaaatacaaaaatcaggctgggcacggtggctcacgcctgtaatcccagcactttgggaggccgaggtgggcagatcacgaggtcaggagttcaagaccagcctgaccaatgtggtgaaacgccatctctactaaaaatacaaaaatcagccggtgtggtggcacctgcctgtaatcccagctactcaggaggctgaggcagaattgcttgaacccgggaggcagaggttgcagtgagccaagatcgtgccactgcactccagcctgggcgacagagcaagacttcatctcaaaaaaaaaaaaaaattagctgggcatggtggtgggcacctgaaatcccagctactcgggagtctgaggcaggagaatcgcttgaacccaggaggcagaagttgcactgagctgggatcacaccattgcactccagcctgggcaacagagtgagactccatctcaaaaaaagaaaaagaaaaaggataaatacattctaaccaaataatgtttatctcatgattgtagctgattcaacattcaaaaattggcctggtgcagtagctcaggcctgtaatcccaacattttaggaggctgaggcaggaagatctcttgagcccaggatttcaagaccagcctgggcaacatagtcagactggtctttactggggggaaaaaaatcagtctgtgtaattcaccacattaacaaagggaaacataaaaaccctatgatcatttcaacagatgtagcaaaagcagttaatgatattcaacacatatgcatgattacaaaccaaccaacctcctagcaaactagggaaaggaaacttaacctagtttgataacagggcgtccacagtcggagttccactagcagcatacataatggtagaaaactcagtgctgccgggcgcggtggctcacgcctgtaatgccagcactttgggaggcctaggcgggcggatcacgaggtcaggagatcgagactgtcctgactagcatgctgaaaccccgtctctactaaaaatacaaaaacaaaaaattagccgggcatggtggcgggcgcctatagtcccagctactcgggaggctgaggcgagagaatggcgtgaacccgggaggcggagcttgcagagcctagatcgtgccactgcactccagcctgggtgacagagtgagacttcgtctcaaaaaaaaaaaaaaaaaaaaaagaaaagaaaactcaacgctttttcctctaagatcaggaactagaaaaggatttgactctcacaacgttgataccatactggaggttttaaccaggcaagaaaaagaaataatgagggccgggtgcggtggctcaggcctgtaatcccagcactttgggaagccgagacgggtggatcacgaggtcaggagatcgagaccatcctggctaacacggtgaaaccctgtctctactaaatatacaaaaaattagccgggcgtagtggcgggcgcctgtagtcccagctactcgggaggctgaggcaggagaatggcgtgaactcagggggcggagcttgcagtgagctgagatcgagccactgcactccagcctgggcgacagagcaagactgtgtctcaaaaaaaaaaaaagaaaaagaaataatgattagtggcccgatgtctcacgcctataatcccagcactttgggaggccgaggtgggcagatcacctgaggtctggagttggagaccagcctgacaaagatggtgaaacctcgtctctattaaaatattaaaaaaatagccaggcgttggccgggtacagtggctcatgcctgtaatcccagcactttgggaggccgaggtgggtggatcacctgaggtcaggagttcaacaccagcctggccaacatggtgaaaccccatctctactaaaaatacaaaaattagccgggcgtagtggcgggcgcctgtaatcccagctacttgggaggcttaggcaggagaatcgcttgaacctgggaggcggaggttgtagtgagccgagattgcaccattgcactccagcctgggtgacaaaagcaaaaactccgtctcaaaaaaaaaagaattagccaggggtagtggtgaacgcctgtagtcccagctactcaggaggcagaggcaggagaatcacttgaacccaggaggcagaggttgcagtgagccgagattgtcccattgcactccagcctaggcgacaagagcaaaattccatgtcaaaaaaaaaaaaaaaaaaggaaagaaaaaaaataacgattagaaaggaagaaataaaacacattcacagccagtatgattctatacatacatgtcctaatggggccaggcgtggtggctcatgcctgtaatcctagcacttttaggaggctgaggcaggtggcttccctgggaccagcctggccaacatggtgaaaccccaactctaataaaaatacaaaaaatcagccaggcgtggtgacgggcacctctaatcccagctactcaggaggctgaggcaggagaattgcttggacctgggaggcagaggttgcagtgagccgagatcgcgctattgcactccagcctgggcaacaagagtgaaactccggcagggtgtggtggcttacgcctgtaatcccagcacttcgggaggctgaggcaggccgatcacctgaggtcaggagtttgagaccaacctaacatggtgaaaccccgtctctactaaaaatacaagaattagctgggtgtagtggtgggcgcctgtaatcccagctacttgggaggctgagacagaagaattgcttgaacccaggaggtggaggttgcagtgagctgagatcatgccattgcacaccacgccgggcaacagagcgagattccgtctcaaaaaaaaaaaaaaagagtgaaactctatctcaaaaaaaaaaaaaagtcctaatggaaaatccataaaaagctaccaaaactaataaataaatatagcagggttgcaggttacagggcaatatagttatccctctatctgtaggggcttggttctgggactcctcacacaccaaacccacagatgtctaagtcccatatataagacggtatagtatttggatttaacctacacatatcctcccatatagtttaaattatctctagattacttacattacccccatacaatgaaaatgctaatgtacatgcaagtatgtatgtaagtacttgtactatattgtttagggaatcactggacatataggccttcaagactgataccagcagccactgttaagattctggtcaggcctgcccctgtttggggtctcagttgatctcattgccttcccacccagccaagggcacctgcatttctcttggctccctggccatttggaaggcctagttcagcctggcacatttgtatcctggcccactgatgctggtacccctgggaaggtcctgctctgaaaaacacggagattttagttgctactgaagatttgagagataaagacagggagacctgtctgtagacctgtgtccctccaagtgggattgagactttgggccccccatttcaggacagcacctcctggcctgttgactgaatagatccctgaaggaggtgtacttgcattaatggagtgggggtgggagcagtaccacagatccgcactaacaatcacacagttctctctagaataataatatagaacaagtgaaatagaacaattgcagaaagagctaacctttgttgagctcttactgtgtgcccagcactttcctcaactctacatttcccataatacacagagtactaggtaggccaggcttggtggctcacgcctgtaatcccagcactttaggaggccaaggggggtggatcacctgaggtcgggagttcaagaccagcctgaccaacatggtgaaaccccgtctctactagaagtacaaaattagccaggtgtggtggcacatgcttgtagtcctagctactcagcaggctgaggcaggagaatcatttgaatccgggaggaggttgcagtaagcggagatagtgccactgtactccagcctgggcaataagagctgagactccgtctcaaaataaaataaaataaaataaaataaaataaaataaaataaaaaaagaaaagagcctgccattaaaggagctgtttggtaggggatgttttgtcagtgcaaacaacagaaaagtgggctgggcacagtggttcatgcctgtaatcccagcactttgggaggccaaggcgggcggatcacctgaagttgggagttcaagaccagcctgaccaatatggagaaaccccgtctctactaaaaatacaaaattagccgggcgcagtggcgcatgcctgtaatcccagctactcgggaggctgaggcaggagaatcgcttgaacctgggaggcagaggttgcggtgagccgagatcgcaccattgcactccagcctggacgagagcaaaactctgtctcaaaaaaaaaaaaaaacagaaaagtgtaacaaacacttacagtaggcatgtttcttagcaaatctgatgacaaatttggcataaagaaagagagcatccctgaaaaaaaaaaaaagaaaaagaaagagagcatcctgcctgggcaacatagtgaaaccctgcctctacaaaaaaactcaaaaattggccgggtgcagtggctcacacctgtaatcccagcactttgggagtcggaggcgggaggatcacctgaggtcaggagttcgaaaccagcctggccaacatggcaaaaccccatctctactaaaaatacaaaaaattaatcaggcgcattggtgggcgcctgtaatcccagctactcaggaagttgaggcaagaggatcgcttgaatctgggaggtggaggttacagtgagtcgagatcacaccactgcactctagcctgggtgacagggcgagactccgtctccaaaaaaaaaaagaaaaagaaaaagactaaaaaattagccaggcaggcctctgtggtcccagctacttgggaggctgaggcaggagaatcactgagcccaggagtccgaggctgtagtgagccatgattgcaccactgtaccctagcttgggcaacaaagcaagaccctgcctcaaaagaaaaaagaaagaaagaaagaacatggcgggccaggcacagtggctcacacctgtaatcccagcgctttgagaggccgaggcaggtggatcacaaggtcaggagttccacaccagcctggccaacatggtgaaaccctgtctctactaaaaatacaaaaaatcagccaggcatggtggcaggggcctgtaatcccagctactcgggaggctgaggcaggagaattgcttgaaaccagaaggcagaggttgcagtgagcctagactgcaccactgcactccagcctgggcgaaaagagccaaactccatctcaaaaaacaaacaaaaaaacaaaacaaaagaaaacatggcaaagcctttgaaagcttgtctgggagaaggtgcgatgatagttgcataacttcgtgcaagatgctggtccacacaggggctgccccttgctctttctcgctctcttaacctctcatataacaggcttgtgtgttattcacatttattgagcccaagcaggtgcaaggcattgtgatctaatactttggtcagcaagacaacaagatagatcactgccctgcccttaggaagtgtatatgctattagaggaaacagataaaataaacaaggaaaagtatcagacaatgtaagtgctatgagaatgcaaatgaggtgatgtgaattaaaataggatgacttaaagtctgcacgggaaggagcctacccccatgttcctggctagccaaggaaccaccagttgattagcagagaagggcagccagtctagctagagcttttggggaagagggagtggttgttaagagatgagattaaagaagccgagacgggccattcgtgaggggtttgtaatgcagggctgaggagtgtccgaagagaatgggcaggtgagcggtgagacagttgttcttccagaagctttgcagtgaaaggaatcaaagaaatggagccgtgtatcaggtggggaagggtgggggccaagggggtgtccttccccatacagagattgcaggctgagaatgactatatccttgttaacaggaggtgggagcagggcacggtagctcacacctgtaatcttggcactttaggaggctgaggcgggccgatcacctgaagtaaggagttcgagaccagcctggccaacatgcaaagccctgtctctactaaaaatacaaaaattagctgggtgtggtggtactcgcctgtaatcccagctactcgggagactgaggcaggagaatggcttgaacccggaaggtagaggttgcagtgagctgagatcatgccactgtgctccagcctaggtgacagagagagactccatctcaaaaaaaaaaaaaaaatacaggaagggagttgggaatagggtgcacatttaggaagtcttggggatttagtggtgggaaggttggaagtccctctctgattgtcttttcctcaaagaagtgcatggctggtgaggggtggggcaggagtgcttgggttgtggtgaaacattggaagagagaatgtgaagcagccattcttttcctgctccacaggaagccgagctgtctcagacactggcatggtgttgggggagggggttccttctctgcaggcccaggtgacccagggttggaagtgtctcatgctggatccccacttttcctcttgcagcagccagactgccttccgggtcactgccatggaggagccgcagtcagatcctagcgtcgagccccctctgagtcaggaaacattttcagacctatggaaactgtgagtggatccattggaagggcaggcccaccacccccaccccaaccccagccccctagcagagacctgtgggaagcgaaaattccatgggactgactttctgctcttgtctttcagacttcctgaaaacaacgttctggtaaggacaagggttgggctggggacctggagggctggggacctggagggctggggggctggggggctgaggacctggtcctctgactgctcttttcacccatctacagtcccccttgccgtcccaagcaatggatgatttgatgctgtccccggacgatattgaacaatggttcactgaagacccaggtccagatgaagctcccagaatgccagaggctgctccccccgtggcccctgcaccagcagctcctacaccggcggcccctgcaccagccccctcctggcccctgtcatcttctgtcccttcccagaaaacctaccagggcagctacggtttccgtctgggcttcttgcattctgggacagccaagtctgtgacttgcacggtcagttgccctgaggggctggcttccatgagacttcaatgcctggccgtatccccctgcatttcttttgtttggaactttgggattcctcttcaccctttggcttcctgtcagtgtttttttatagtttacccacttaatgtgtgatctctgactcctgtcccaaagttgaatattccccccttgaatttgggcttttatccatcccatcacaccctcagcatctctcctggggatgcagaacttttctttttcttcatccacgtgtattccttggcttttgaaaataagctcctgaccaggcttggtggctcacacctgcaatcccagcactctcaaagaggccaaggcaggcagatcacctgagcccaggagttcaagaccagcctgggtaacatgatgaaacctcgtctctacaaaaaaatacaaaaaattagccaggcatggtggtgcacacctatagtcccagccacttaggaggctgaggtgggaagatcacttgaggccaggagatggaggctgcagtgagctgtgatcacaccactgtgctccagcctgagtgacagagcaagaccctatctcaaaaaaaaaaaaaaaaaagaaaagctcctgaggtgtagacgccaactctctctagctcgctagtgggttgcaggaggtgcttacgcatgtttgtttctttgctgccgtcttccagttgctttatctgttcacttgtgccctgactttcaactctgtctccttcctcttcctacagtactcccctgccctcaacaagatgttttgccaactggccaagacctgccctgtgcagctgtgggttgattccacacccccgcccggcacccgcgtccgcgccatggccatctacaagcagtcacagcacatgacggaggttgtgaggcgctgcccccaccatgagcgctgctcagatagcgatggtgagcagctggggctggagagacgacagggctggttgcccagggtccccaggcctctgattcctcactgattgctcttaggtctggcccctcctcagcatcttatccgagtggaaggaaatttgcgtgtggagtatttggatgacagaaacacttttcgacatagtgtggtggtgccctatgagccgcctgaggtctggtttgcaactggggtctctgggaggaggggttaagggtggttgtcagtggccctccaggtgagcagtaggggggctttctcctgctgcttatttgacctccctataaccccatgagatgtgcaaagtaaatgggtttaactattgcacagttgaaaaaactgaagcttacagaggctaagggcctcccctgcttggctgggcgcagtggctcatgcctgtaatcccagcactttgggaggccaaggcaggcggatcacgaggttgggagatcgagaccatcctggctaacggtgaaaccccgtctctactgaaaaatacaaaaaaaaattagccgggcgtggtgctgggcacctgtagtcccagctactcgggaggctgaggaaggagaatggcgtgaacctgggcggtggagcttgcagtgagctgagatcacgccactgcactccagcctgggcgacagagcgagattccatctcaaaaaaaaaaaaaaaaggcctcccctgcttgccacaggtctccccaaggcgcactggcctcatcttgggcctgtgttatctcctaggttggctctgactgtaccaccatccactacaactacatgtgtaacagttcctgcatgggcggcatgaaccggaggcccatcctcaccatcatcacactggaagactccaggtcaggagccacttgccaccctgcacactggcctgctgtgccccagcctctgcttgcctctgacccctgggcccacctcttaccgatttcttccatactactacccatccacctctcatcacatccccggcggggaatctccttactgctcccactcagttttcttttctctggctttgggacctcttaacctgtggcttctcctccacctacctggagctggagcttaggctccagaaaggacaagggtggttgggagtagatggagcctggttttttaaatgggacaggtaggacctgatttccttactgcctcttgcttctcttttcctatcctgagtagtggtaatctactgggacggaacagctttgaggtgcgtgtttgtgcctgtcctgggagagaccggcgcacagaggaagagaatctccgcaagaaaggggagcctcaccacgagctgcccccagggagcactaagcgaggtaagcaagcaggacaagaagcggtggaggagaccaagggtgcagttatgcctcagattcacttttatcacctttccttgcctctttcctagcactgcccaacaacaccagctcctctccccagccaaagaagaaaccactggatggagaatatttcacccttcaggtactaagtcttgggacctcttatcaagtggaaagtttccagtctaacactcaaaatgccgttttcttcttgactgttttacctgcaattggggcatttgccatcagggggcagtgatgcctcaaagacaatggctcctggttgtagctaactaacttcagaacaccaacttataccataatatatattttaaaggaccagaccagctttcaaaaagaaaattgttaaagagagcatgaaaatggttctatgactttgcctgatacagatgctacttgacttacgatggtgttacttcctgataaactcgtcgtaagttgaaaatattgtaagttgaaaatggatttaatacacctaatctaaggaacatcatagcttagcctagcctgctttttttttttttttttttggagacagagtctcactctgtcacccaggctggagtgcagtggcgggatctcggctcactgcaacctccgccttctgggttcaagcgattctcctgcctcagcccactgagtagctgggattacaggcacctgccccgacgcccagctaattttttgttatttatttatttttttttttagtagagatgaggtttcaccatgttggccaggctagtctcgaactcctgaccttgtgatctgcctgccttggcctcccaaagtgctgggattacaggcgtgagccaccgcacccggcctgcctagcctacttttattttatttttaatggagacagcatcttgctctgttgcccaggctggattacagtgatgtgatcatagctcattataccctcctgggctcaagcaatccccctaactctgcctccccagtagctaggaccacaggcatacaccaccatacccagctaatttttaaaattttttgtagatagatagagtctcactatgttgcccaggctggtctctagcctacttttttgagacaaggtcttgctctgtcacccaggctggatagagtgcagtagtgcagtcacagctcactgcagcctccacctcccaggctccatccatcctcccagctcagcctcccaagttgcttcaactacaggcctgcaccaccatgcctggctaatttttatttatttatttttattttattttattttatttttttgagactcagtctcactctgtcgcccaggctggagtgcagtggcatgatctcggctcactgcaacctctgcctcctgggttcaagtgattctcctgcctcagcctcccgaatagctaggactacaagcgcctgctaccacgcccagctaatttttgtatttttagtagagacagggtttcaccatgttggccaggctggtctcgaacttctgaccatgtgatccgcccgcctcggcctcccaaagtgctgggattacaggtgtgagccaccacgcccggctaatttttatttatttatttaaagacagagtctcactctgtcactcaggctagagtgcagtggcaccatctcagctcactgcagccttgacctccctgggctccggtgatttcaccctcccaagtagctaggactacaggcacatgccacgacacccagctaattttttattttctgtgaagtcaaggtcttgctacgttgcccatgctggtatcaaacccctgggctcaatcaatccttccacctcagcctccccaagtattggggttacaggcatgagctaccacactcagccctagcctacttgaaacgtgttcagagcatttaagttaccctacagttgggcaaagtcatctaacacaaagccctttttatagtaataaaatgttgtatatctcatgtgatttattgaatattgttactgaaagtgagaaacagcatggttgcatgaaaggaggcacagtcgagccaggcacagcctgggcgcagagcgagactcaaaaaaagaaaaggccaggcgcactggctcacgcctgtaatcccagcatttcgggaggctgaggcgggtggatcacctgaggtcaggagttcaagaccagcctagccaacatggtgaaaccccgtctctactaaaatacaaaaattaaccgggcgtgatggcaggtgcctgtaatcccagctacttgggaggctgaggcaggagaatcgcttgaaccaggaggcggaggttgcagggagccaagatggcgccactgcactccagcctgggcgatagagtgagactccgtctcagaaaaaaaagaaaagaaacgaggcacagtcgcatgcacatgtagtcccagttacttgagaggctaaggcaggaggatctcttgagcccaagagtttgagtccagcctgaacaacatagcaagacatcatctctaaaatttaaaaaagggccgggcacagtggctcacacctgtaatcccagcactttgggaggtggaggtgggtagatcacctgacgtcaggagttggaaaccagcctggctaacatggtgaagccccatctctactaaaaacacaaaaattagccaggtgtggtagcacacgcctgtagtcccagctactcgggaggctgaggcacaagaatcacttgaaccccagaggcggagattgcaatcagccaagattgcaccattgcactcccgcctgggcaacagagtgagaccccatctcaaaataaataaataaatatttttaaaagtcagctgtataggtacttgaagtgcagtttctactaaatgcatgttgcttttgtaccgtcataaagtcaaacaattgtaacttgaaccatcttttaactcaggtactgtgtatatacttacttctccccctcctctgttgctgcagatccgtgggcgtgagcgcttcgagatgttccgagagctgaatgaggccttggaactcaaggatgcccaggctgggaaggagccaggggggagcagggctcactccaggtgagtgacctcagccccttcctggccctactcccctgccttcctaggttggaaagccataggattccattctcatcctgccttcatggtcaaaggcagctgaccccatctcattgggtcccagccctgcacagacatttttttagtcttcctccggttgaatcctataaccacattcttgcctcagtgtatccacagaacatccaaacccagggacgagtgtggatacttctttgccattctccgcaactcccagcccagagctggagggtctcaaggaggggcctaataattgtgtaatactgaatacagccagagtttcaggtcatatactcagccctgccatgcaccggcaggtcctaggtgacccccgtcaaactcagtttccttatatataaaatggggtaagggggccgggcgcagtggctcacgaatcccacactctgggaggccaaggcgagtggatcacctgaggtcgggagtttgagcccagcctgaccaacatggagaaaccccatctctactaaaaatacaaaagtagccgggcgtggtgatgcatgcctgtaatcccagctacctactcgggaggctgaggcaggagaatcgcttgaacccgggaggcagaggttgcggtgagctgagatctcaccattacactccagcctgggcaacaagagtgaaactccgtctcaaaaaagataaataaagtaaaatggggtaagggaagattacgagactaatacacactaatactctgaggtgctcagtaaacatatttgcatggggtgtggccaccatcttgatttgaattcccgttgtcccagccttaggcccttcaaagcattggtcagggaaaaggggcacagaccctctcactcatgtgatgtcatctctcctccctgcttctgtctcctacagccacctgaagtccaaaaagggtcagtctacctcccgccataaaaaactcatgttcaagacagaagggcctgactcagactgacattctccacttcttgttccccactgacagcctcccacccccatctctccctcccctgccattttgggttttgggtctttgaacccttgcttgcaataggtgtgcgtcagaagcacccaggacttccatttgctttgtcccggggctccactgaacaagttggcctgcactggtgttttgttgtggggaggaggatggggagtaggacataccagcttagattttaaggtttttactgtgagggatgtttgggagatgtaagaaatgttcttgcagttaagggttagtttacaatcagccacattctaggtaggggcccacttcaccgtactaaccagggaagctgtccctcactgttgaattttctctaacttcaaggcccatatctgtgaaatgctggcatttgcacctacctcacagagtgcattgtgagggttaatgaaataatgtacatctggccttgaaaccaccttttattacatggggtctagaacttgacccccttgagggtgcttgttccctctccctgttggtcggtgggttggtagtttctacagttgggcagctggttaggtagagggagttgtcaagtctctgctggcccagccaaaccctgtctgacaacctcttggtgaaccttagtacctaaaaggaaatctcaccccatcccacaccctggaggatttcatctcttgtatatgatgatctggatccaccaagacttgttttatgctcagggtcaatttcttttttcttttttttttttttttttctttttctttgagactgggtctcgctttgttgcccaggctggagtggagtggcgtgatcttggcttactgcagcctttgcctccccggctcgagcagtcctgcctcagcctccggagtagctgggaccacaggttcatgccaccatggccagccaacttttgcatgttttgtagagatggggtctcacagtgttgcccaggctggtctcaaactcctgggctcaggcgatccacctgtctcagcctcccagagtgctgggattacaattgtgagccaccacgtccagctggaagggtcaacatcttttacattctgcaagcacatctgcattttcaccccacccttcccctccttctccctttttatatcccatttttatatcgatctcttattttacaataaaactttgctgccacctgtgtgtctgaggggtg";
+            String strNormal="MEEPQSDPSVEPPLSQETFSDLWKLLPENNVLSPLPSQAMDDLMLSPDDIEQWFTEDPGPDEAPRMPEAAPRVAPAPAAPTPAAPAPAPSWPLSSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCSYSPALNKMFCQLAKTCPVQLWVDSTPPPGTRVRAMAIYKQSQHMSEVVRRCPHHERCSDSDGLAPPQHLIRVEGNLRVEYLDDRNTFRHSVVVPYEPPEVGSDCTTIHYNYMCNSSCMGGMNRRPILTIITLEDSSGNLLGRNSFEVRVCACPGRDRRTEEENLRKKGEPHHELPPGSTKRALPNNTSSSPQPKKKPLDGEYFTLQIRGRERFEMFRELNEALELKDAQAGKEPGGSRAHSSHLKSKKGESTSRHKKLMFKTEGPDSDU";
             for (char c : strFasta.toCharArray()) {
                     cadenaFasta.add(c);
                 }
