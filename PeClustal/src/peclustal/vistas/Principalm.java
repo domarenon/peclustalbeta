@@ -22,6 +22,8 @@ public class Principalm extends javax.swing.JFrame {
     /**
      * Creates new form Principalm
      */
+    
+    private int contadorArchivo;
     public Principalm() {
         
         initComponents();
@@ -53,7 +55,7 @@ public class Principalm extends javax.swing.JFrame {
                 }
                 
                 String strFasta = analizarFasta(b);
-                jTextArea2.append("\n"+conf);
+                jTextArea2.append("\n"+conf +"\n");
                 //visualizarFasta(strFasta,conf);
                 
             }
@@ -165,6 +167,9 @@ public class Principalm extends javax.swing.JFrame {
         }
 //        jTextArea1.setText("");
 //        jTextArea3.setText("");
+        
+        contadorArchivo++;
+        jTextArea3.append("Archivo numero "+contadorArchivo+"\n");
         for (String[] info : matrizTempX) {
             if(!info[4].equals(info[3]))
             jTextArea3.append(
@@ -176,6 +181,7 @@ public class Principalm extends javax.swing.JFrame {
                         " no ha cambiado. "+info[4]+"->"+info[3]+"\n");
         }
         
+        jTextArea3.append("\n\n");
         String otroAux = "";
         for (int i = 0; i < strNormal.length(); i = i+3) {
             otroAux = otroAux.concat(strNormal.substring(i, i+3).concat(" "));
@@ -196,7 +202,11 @@ public class Principalm extends javax.swing.JFrame {
         }
         
         cambios = otroAux;
-        jTextArea1.append(strNormal.toUpperCase()+"\n"+fasta.toUpperCase()+"\n"+cambios);
+        if (contadorArchivo == 1) {
+            jTextArea1.append(strNormal.toUpperCase());
+        }
+
+        jTextArea1.append("\n"+fasta.toUpperCase()+"\n"+cambios);
         
         return fasta;
     }
@@ -447,26 +457,7 @@ public class Principalm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        String strNormal="ATG GAG GAG CCG CAG TCA GAT CCT AGC GTC GAG CCC CCT CTG AGT CAG GAA ACA TTT TCA " +
-"GAC CTA TGG AAA CTA CTT CCT GAA AAC AAC GTT CTG TCC CCC TTG CCG TCC CAA GCA ATG " +
-"GAT GAT TTG ATG CTG TCC CCG GAC GAT ATT GAA CAA TGG TTC ACT GAA GAC CCA GGT CCA " +
-"GAT GAA GCT CCC AGA ATG CCA GAG GCT GCT CCC CGC GTG GCC CCT GCA CCA GCA GCT CCT " +
-"ACA CCG GCG GCC CCT GCA CCA GCC CCC TCC TGG CCC CTG TCA TCT TCT GTC CCT TCC CAG " +
-"AAA ACC TAC CAG GGC AGC TAC GGT TTC CGT CTG GGC TTC TTG CAT TCT GGG ACA GCC AAG " +
-"TCT GTG ACT TGC ACG TAC TCC CCT GCC CTC AAC AAG ATG TTT TGC CAA CTG GCC AAG ACC " +
-"TGC CCT GTG CAG CTG TGG GTT GAT TCC ACA CCC CCG CCC GGC ACC CGC GTC CGC GCC ATG " +
-"GCC ATC TAC AAG CAG TCA CAG CAC ATG ACG GAG GTT GTG AGG CGC TGC CCC CAC CAT GAG " +
-"CGC TGC TCA GAT AGC GAT GGT CTG GCC CCT CCT CAG CAT CTT ATC CGA GTG GAA GGA AAT " +
-"TTG CGT GTG GAG TAT TTG GAT GAC AGA AAC ACT TTT CGA CAT AGT GTG GTG GTG CCC TAT " +
-"GAG CCG CCT GAG GTT GGC TCT GAC TGT ACC ACC ATC CAC TAC AAC TAC ATG TGT AAC AGT " +
-"TCC TGC ATG GGC GGC ATG AAC CGG AGG CCC ATC CTC ACC ATC ATC ACA CTG GAA GAC TCC " +
-"AGT GGT AAT CTA CTG GGA CGG AAC AGC TTT GAG GTG CGT GTT TGT GCC TGT CCT GGG AGA " +
-"GAC CGG CGC ACA GAG GAA GAG AAT CTC CGC AAG AAA GGG GAG CCT CAC CAC GAG CTG CCC " +
-"CCA GGG AGC ACT AAG CGA GCA CTG CCC AAC AAC ACC AGC TCC TCT CCC CAG CCA AAG AAG " +
-"AAA CCA CTG GAT GGA GAA TAT TTC ACC CTT CAG ATC CGT GGG CGT GAG CGC TTC GAG ATG " +
-"TTC CGA GAG CTG AAT GAG GCC TTG GAA CTC AAG GAT GCC CAG GCT GGG AAG GAG CCA GGG " +
-"GGG AGC AGG GCT CAC TCC AGC CAC CTG AAG TCC AAA AAG GGT GAG TCT ACC TCC CGC CAT " +
-"AAA AAA CTC ATG TTC AAG ACA GAA GGG CCT GAC TCA GAC TGA";
+        String strNormal="";
         jTextArea1.setText(strNormal.toUpperCase());
     }//GEN-LAST:event_formWindowOpened
 
