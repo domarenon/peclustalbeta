@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usuario/Documents/localrepositorytest/PeClustal/src/peclustal/PeClustal.java</file>
-            <file>file:/C:/Users/usuario/Documents/localrepositorytest/PeClustal/src/peclustal/vistas/Principalm.java</file>
+            <file>file:/D:/Users/Tetris/Documents/peclustalbeta/PeClustal/src/peclustal/PeClustal.java</file>
+            <file>file:/D:/Users/Tetris/Documents/peclustalbeta/PeClustal/src/peclustal/vistas/Principalm.java</file>
+            <file>file:/D:/Users/Tetris/Documents/peclustalbeta/PeClustal/src/peclustal/vistas/RegistroBD.java</file>
+            <file>file:/D:/Users/Tetris/Documents/peclustalbeta/PeClustal/src/peclustal/PJmol.java</file>
+            <file>file:/D:/Users/Tetris/Documents/peclustalbeta/PeClustal/src/peclustal/persistencia/CargarBD.java</file>
         </group>
     </open-files>
 </project-private>

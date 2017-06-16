@@ -8,9 +8,14 @@ package peclustal.vistas;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.biojava.nbio.structure.Structure;
+import org.biojava.nbio.structure.io.PDBFileReader;
+import peclustal.PJmol;
+import peclustal.persistencia.CargarBD;
 
 /**
  *
@@ -173,7 +178,7 @@ public class Principalm extends javax.swing.JFrame {
         for (String[] info : matrizTempX) {
             if(!info[4].equals(info[3]))
             jTextArea3.append(
-                    "Se halla mutacion en posicion " +info[2]+ 
+                    "Se halla mutacion en el codon " +((parseInt(info[2])/3)+1)+ 
                     ": " +info[0] + " -> "+info[1]+", "
                             + "Aminoacido mutado: "+info[3]+" -> "+ info[4] +"\n");
             else
@@ -207,6 +212,9 @@ public class Principalm extends javax.swing.JFrame {
         }
 
         jTextArea1.append("\n"+fasta.toUpperCase()+"\n"+cambios);
+        
+        abrirBD((parseInt(matrizTempX[contadorMatriz-1][2])/3)+1, matrizTempX[contadorMatriz-1][1]);
+        abrir3D((parseInt(matrizTempX[contadorMatriz-1][2])/3)+1);
         
         return fasta;
     }
@@ -275,6 +283,35 @@ public class Principalm extends javax.swing.JFrame {
   
 
         return cadenaModificada;
+    }
+    
+    public void abrirBD(int codon, String mutacion){
+        File f = new File("bd/baseDatosP53.xlsx");
+        if (f.exists()){
+            CargarBD obj = new CargarBD(f,codon+".0",mutacion);
+            RegistroBD reg = new RegistroBD(obj.getCellData());
+            reg.setVisible(true);
+        }
+        
+    }
+    
+    public void abrir3D(int codon){
+        try {
+
+           PDBFileReader pdbr = new PDBFileReader();            
+           pdbr.setPath("/Path/To/PDBFiles/");
+
+           String pdbCode = "1t4w";
+
+           Structure struc = pdbr.getStructureById(pdbCode);
+
+           PJmol ex = new PJmol();  
+           ex.setStructure(struc);  
+            
+             
+       } catch (Exception e){  
+           e.printStackTrace();  
+       }  
     }
     
     public void visualizarFasta(String strFasta, String conf){
